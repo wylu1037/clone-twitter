@@ -24,11 +24,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} h-screen bg-black antialiased`}
       >
-        {children}
+        <div className="xl:px-30 container mx-auto h-full max-w-6xl">
+          <div className="grid h-full grid-cols-4">
+            <div className="col-span-3 border-x-[1px] border-neutral-800 lg:col-span-2">
+              {children}
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );
